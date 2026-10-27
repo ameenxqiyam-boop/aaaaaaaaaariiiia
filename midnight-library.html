@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111522">
+  <meta name="description" content="A quiet, moonlit library of little games, curiosities, and stories.">
+  <title>The Midnight Library</title>
+  <link rel="stylesheet" href="midnight-library.css">
+  <script src="midnight-library.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#library-main">Skip to the library</a>
+  <header class="library-header">
+    <a class="library-wordmark" href="index.html" aria-label="Return to the birthday world">
+      <span class="wordmark-seal" aria-hidden="true">✦</span>
+      <span>THE MIDNIGHT LIBRARY<small>A door hidden between the pages</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="library-nav">
+      <span class="sr-only">Toggle library navigation</span><span aria-hidden="true">☰</span>
+    </button>
+    <nav class="library-nav" id="library-nav" aria-label="Library rooms">
+      <button type="button" data-room-link="library" aria-current="page">The library</button>
+      <button type="button" data-room-link="memory">Midnight Memory</button>
+      <button type="button" data-room-link="observatory">Observatory</button>
+      <button type="button" data-room-link="cabinet">Curiosity cabinet</button>
+      <button type="button" data-room-link="letters">Unsent letters</button>
+    </nav>
+  </header>
+
+  <main id="library-main">
+    <section class="room room-library" data-room="library" aria-labelledby="library-title">
+      <div class="library-hero">
+        <div class="library-architecture" aria-hidden="true">
+          <div class="arched-window"><span class="window-moon"></span><span class="window-hill"></span><span class="window-tower">♜</span></div>
+          <div class="bookcase bookcase-left"><i></i><i></i><i></i><i></i></div>
+          <div class="bookcase bookcase-right"><i></i><i></i><i></i><i></i></div>
+          <span class="candle candle-left"></span><span class="candle candle-right"></span>
+          <span class="hero-mote mote-one">✧</span><span class="hero-mote mote-two">·</span><span class="hero-mote mote-three">✦</span>
+        </div>
+        <div class="hero-copy">
+          <p class="overline"><span></span>A door hidden between the pages</p>
+          <h1 id="library-title">The Midnight<br><em>Library</em></h1>
+          <p class="hero-subtitle">A little place for curious minds and creatures of the night.</p>
+          <a class="brass-button" href="#room-directory">Enter the library <span aria-hidden="true">↓</span></a>
+          <p class="entrance-whisper">No rush. The doors stay open.</p>
+        </div>
+        <div class="hero-caption"><span>EST. WHENEVER YOU NEED IT</span><span>✦</span><span>OPEN AFTER DUSK</span></div>
+      </div>
+
+      <div class="room-directory" id="room-directory" tabindex="-1">
+        <div class="directory-heading">
+          <p class="overline">A small collection of doorways</p>
+          <h2>Choose a room.<br><em>Or simply wander.</em></h2>
+        </div>
+        <div class="doorway-list">
+          <button type="button" class="doorway doorway-memory" data-room-link="memory">
+            <span class="door-number">01</span><span class="door-symbol" aria-hidden="true">⚿</span>
+            <span class="door-copy"><strong>Midnight Memory</strong><small>A quiet game of pairs, played at your own pace.</small></span><span class="door-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button type="button" class="doorway doorway-observatory" data-room-link="observatory">
+            <span class="door-number">02</span><span class="door-symbol" aria-hidden="true">☾</span>
+            <span class="door-copy"><strong>The Moonlit Observatory</strong><small>Watch the moon change over the Highland dark.</small></span><span class="door-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button type="button" class="doorway doorway-cabinet" data-room-link="cabinet">
+            <span class="door-number">03</span><span class="door-symbol" aria-hidden="true">❦</span>
+            <span class="door-copy"><strong>The Curiosity Cabinet</strong><small>Eight objects, each keeping a little secret.</small></span><span class="door-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button type="button" class="doorway doorway-letters" data-room-link="letters">
+            <span class="door-number">04</span><span class="door-symbol" aria-hidden="true">✒</span>
+            <span class="door-copy"><strong>The Unsent Letters Room</strong><small>A blank page for thoughts that belong only to you.</small></span><span class="door-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <p class="library-note">Nothing here needs finishing. Leave whenever you like, and come back when the night feels right.</p>
+      </div>
+    </section>
+
+    <section class="room interior-room memory-room" data-room="memory" aria-labelledby="memory-title" hidden>
+      <div class="room-heading">
+        <button type="button" class="back-link" data-room-link="library"><span aria-hidden="true">←</span> The library</button>
+        <p class="overline">A little game for a moonlit hour</p>
+        <h1 id="memory-title">Midnight <em>Memory</em></h1>
+        <p>Turn two cards at a time and find the quiet kinship between them.</p>
+      </div>
+      <div class="game-shell">
+        <div class="game-topline"><span class="game-seal" aria-hidden="true">✦</span><span>THE CARD TABLE</span><span class="game-seal" aria-hidden="true">✦</span></div>
+        <div class="game-controls">
+          <label for="difficulty">A hand of</label>
+          <select id="difficulty">
+            <option value="easy">4 pairs · Gentle</option>
+            <option value="medium" selected>6 pairs · Curious</option>
+            <option value="challenge">8 pairs · A longer night</option>
+          </select>
+          <button type="button" class="restart-button" id="restart-game"><span aria-hidden="true">⟳</span> New shuffle</button>
+        </div>
+        <div class="game-stats" aria-label="Game progress">
+          <p><span>Turns</span><strong id="move-count">0</strong></p>
+          <p><span>Pairs found</span><strong><span id="pair-count">0</span><i>/</i><span id="pair-total">6</span></strong></p>
+        </div>
+        <p class="game-message" id="game-message" aria-live="polite">Choose a card to begin. There is no clock here.</p>
+        <div class="memory-grid" id="memory-grid" aria-label="Memory cards"></div>
+        <div class="completion-note" id="completion-note" hidden>
+          <span class="completion-star" aria-hidden="true">✦</span>
+          <h2>The last pair, found.</h2>
+          <p>Even the night has its peaceful moments. Stay a little longer, explore another room, or leave whenever you wish.</p>
+          <div class="completion-actions">
+            <button type="button" class="brass-button" id="play-again">Play another hand</button>
+            <button type="button" class="quiet-button" data-room-link="library">Return to the library</button>
+          </div>
+        </div>
+        <p class="game-footnote">No score to beat. Just a little pattern to uncover.</p>
+      </div>
+    </section>
+
+    <section class="room interior-room observatory-room" data-room="observatory" aria-labelledby="observatory-title" hidden>
+      <div class="room-heading">
+        <button type="button" class="back-link" data-room-link="library"><span aria-hidden="true">←</span> The library</button>
+        <p class="overline">Above the sleeping hills</p>
+        <h1 id="observatory-title">The Moonlit <em>Observatory</em></h1>
+        <p>Set the old brass dial. The sky will meet you where it is.</p>
+      </div>
+      <div class="observatory-scene">
+        <div class="night-sky" aria-hidden="true">
+          <span class="observatory-star star-a">✦</span><span class="observatory-star star-b">·</span><span class="observatory-star star-c">✧</span><span class="observatory-star star-d">·</span><span class="observatory-star star-e">✦</span><span class="observatory-star star-f">·</span>
+          <span class="observatory-moon" id="observatory-moon" data-phase="full" role="img" aria-label="Full moon"></span>
+          <span class="cloud cloud-one"></span><span class="cloud cloud-two"></span>
+          <div class="mountain mountain-far"></div><div class="mountain mountain-near"></div>
+          <div class="observatory-castle" aria-hidden="true"><i></i><b></b><span></span></div>
+        </div>
+        <div class="observatory-caption"><span>THE HIGHLANDS, SOMEWHERE BEYOND THE MAP</span><span aria-hidden="true">✧</span></div>
+      </div>
+      <div class="moon-console">
+        <div class="console-copy"><p class="overline">The lunar dial</p><h2>Which face does<br>the night wear?</h2><p id="phase-description" aria-live="polite">The whole moon rests in the dark, pale and unhurried.</p></div>
+        <div class="phase-picker" role="group" aria-label="Choose a moon phase">
+          <button type="button" data-phase="new" aria-pressed="false"><span class="phase-dot phase-new" aria-hidden="true"></span><span>New</span></button>
+          <button type="button" data-phase="waxing-crescent" aria-pressed="false"><span class="phase-dot phase-waxing-crescent" aria-hidden="true"></span><span>Waxing<br>crescent</span></button>
+          <button type="button" data-phase="first-quarter" aria-pressed="false"><span class="phase-dot phase-first-quarter" aria-hidden="true"></span><span>First<br>quarter</span></button>
+          <button type="button" data-phase="waxing-gibbous" aria-pressed="false"><span class="phase-dot phase-waxing-gibbous" aria-hidden="true"></span><span>Waxing<br>gibbous</span></button>
+          <button type="button" data-phase="full" aria-pressed="true"><span class="phase-dot phase-full" aria-hidden="true"></span><span>Full</span></button>
+          <button type="button" data-phase="waning-gibbous" aria-pressed="false"><span class="phase-dot phase-waning-gibbous" aria-hidden="true"></span><span>Waning<br>gibbous</span></button>
+          <button type="button" data-phase="last-quarter" aria-pressed="false"><span class="phase-dot phase-last-quarter" aria-hidden="true"></span><span>Last<br>quarter</span></button>
+          <button type="button" data-phase="waning-crescent" aria-pressed="false"><span class="phase-dot phase-waning-crescent" aria-hidden="true"></span><span>Waning<br>crescent</span></button>
+        </div>
+      </div>
+      <button type="button" class="return-link" data-room-link="library">Back to the library <span aria-hidden="true">↗</span></button>
+    </section>
+
+    <section class="room interior-room cabinet-room" data-room="cabinet" aria-labelledby="cabinet-title" hidden>
+      <div class="room-heading">
+        <button type="button" class="back-link" data-room-link="library"><span aria-hidden="true">←</span> The library</button>
+        <p class="overline">Collected from the far corners</p>
+        <h1 id="cabinet-title">The Curiosity <em>Cabinet</em></h1>
+        <p>Choose an object. Some hold stories; a few hold old folklore.</p>
+      </div>
+      <div class="cabinet-layout">
+        <div class="cabinet-shelves" aria-label="Cabinet objects">
+          <button type="button" class="artifact" data-artifact="key"><span aria-hidden="true">⚿</span><small>The silver key</small></button>
+          <button type="button" class="artifact" data-artifact="feather"><span aria-hidden="true">❧</span><small>Raven feather</small></button>
+          <button type="button" class="artifact" data-artifact="rose"><span aria-hidden="true">❦</span><small>Winter rose</small></button>
+          <button type="button" class="artifact" data-artifact="book"><span aria-hidden="true">▤</span><small>Leather book</small></button>
+          <button type="button" class="artifact" data-artifact="mirror"><span aria-hidden="true">◉</span><small>Clouded mirror</small></button>
+          <button type="button" class="artifact" data-artifact="candle"><span aria-hidden="true">♜</span><small>Brass candle</small></button>
+          <button type="button" class="artifact" data-artifact="pendant"><span aria-hidden="true">☾</span><small>Moon pendant</small></button>
+          <button type="button" class="artifact" data-artifact="parchment"><span aria-hidden="true">✉</span><small>Sealed parchment</small></button>
+        </div>
+        <article class="artifact-detail" id="artifact-detail" aria-live="polite" aria-labelledby="artifact-name">
+          <div class="detail-ornament" aria-hidden="true">✧</div>
+          <p class="overline" id="artifact-kind">A newly imagined tale</p>
+          <h2 id="artifact-name">The cabinet is waiting.</h2>
+          <p id="artifact-description">Select any object on the shelves. It will tell you what it remembers—or what someone dreamed it might.</p>
+          <p class="detail-source" id="artifact-source"></p>
+        </article>
+      </div>
+      <button type="button" class="return-link" data-room-link="library">Back to the library <span aria-hidden="true">↗</span></button>
+    </section>
+
+    <section class="room interior-room letters-room" data-room="letters" aria-labelledby="letters-title" hidden>
+      <div class="room-heading">
+        <button type="button" class="back-link" data-room-link="library"><span aria-hidden="true">←</span> The library</button>
+        <p class="overline">An empty page, and no audience</p>
+        <h1 id="letters-title">The Unsent <em>Letters Room</em></h1>
+        <p>Write a beginning, follow a daydream, or leave the page blank.</p>
+      </div>
+      <div class="writing-desk">
+        <div class="desk-candle" aria-hidden="true"><span></span></div>
+        <div class="writing-paper">
+          <label for="writing-prompt">A prompt, if one sounds interesting</label>
+          <select id="writing-prompt">
+            <option>If you could visit any fictional world, where would you go?</option>
+            <option>What would your perfect midnight adventure look like?</option>
+            <option>Invent a legend about a castle hidden in the Highlands.</option>
+            <option>What mysterious object would you keep in your own curiosity cabinet?</option>
+            <option>Write the first line of a vampire novel.</option>
+            <option>Describe a place where time seems to stand still.</option>
+          </select>
+          <label for="writing-text">Your page</label>
+          <textarea id="writing-text" rows="9" placeholder="Begin anywhere—or don't begin at all." spellcheck="true"></textarea>
+          <div class="writing-controls"><p>Only you can read what you write here.</p><button type="button" class="quiet-button" id="clear-writing">Clear this page</button></div>
+        </div>
+        <p class="privacy-note"><span aria-hidden="true">✧</span> Your words stay in this page's temporary memory. They are never sent or saved. Leaving this room clears them.</p>
+      </div>
+      <button type="button" class="return-link" data-room-link="library">Back to the library <span aria-hidden="true">↗</span></button>
+    </section>
+  </main>
+  <footer class="library-footer"><a href="index.html">Return to the birthday page</a><span>✦</span><span>A little place for curious minds and creatures of the night.</span></footer>
+</body>
+</html>

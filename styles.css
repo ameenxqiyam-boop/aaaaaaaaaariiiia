@@ -222,6 +222,9 @@ h1 em,h2 em { color: var(--gold); font-weight: 500; }
 .finale-content > p:not(.eyebrow):not(.finale-birthday) { max-width: 500px; margin: 0 auto; color: #e0d6c8; font: 1.1rem/1.7 var(--serif); }
 .finale-birthday { margin: 2rem 0; color: #e9d9bd; font: 1.2rem/1.8 var(--serif); }
 .finale-birthday span { color: var(--gold); }
+.library-doorway { margin: 1.5rem 0 0; }
+.library-doorway a { color: #d7c39e; font-family: var(--serif); font-size: .93rem; font-style: italic; text-decoration-color: #d6b16b77; text-underline-offset: .3em; }
+.library-doorway a:hover { color: #f0d699; }
 .button-outline { color: #ead9bd; border-color: #d6b16b88; background: transparent; }
 .button-outline:hover { color: var(--navy); background: var(--gold); }
 .site-footer { padding: 1.3rem; color: #d6c7af; background: #101d30; text-align: center; font-size: .68rem; letter-spacing: .05em; }
